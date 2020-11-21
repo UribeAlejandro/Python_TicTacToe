@@ -1,21 +1,39 @@
-class Game(object):
-    def __init__(self, board_prev: dict, round_num: int, position: str = ""):
-        self.position = position
-        self.round_num = round_num
-        self.board_prev = board_prev
+from abc import ABCMeta, abstractmethod
 
-    def game_logic(self, board_prev: dict, round_num: int):
+
+class Game(metaclass=ABCMeta):
+    def __init__(self):
+        pass
+
+    def game_logic(self, board: dict, round_num: int):
         """
         Let the player play if it is their turn, otherwise the "AI" will play.
         :return:
         """
-        if round_num < 10:
+        if round_num < 9:
             if round_num % 2 == 0:
                 player = "X"
-                # TODO update parameters of method below
-                self.update_board()
+                position = input("Your turn. Enter position (row,place):")
+                self.update_board(board, round_num, player, position)
+                round_num += 1
+                self.game_logic(board=board, round_num=round_num)
             else:
-                player = "O"
-                self.play_by_AI(board_prev, round_num, player)
+                self.play_by_AI(board, round_num)
+                round_num += 1
+                self.game_logic(board=board, round_num=round_num)
         else:
             print("Game finished")
+            print("Starting a new game")
+            self.start()
+
+    @abstractmethod
+    def start(self):
+        pass
+
+    @abstractmethod
+    def update_board(self, board_prev: dict, round_num: int, player: str, position: str):
+        pass
+
+    @abstractmethod
+    def play_by_AI(self, board: dict, round_num: int):
+        pass

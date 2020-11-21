@@ -1,8 +1,9 @@
-from utils import Board
+from utils.Board import Board
 
 if __name__ == "__main__":
     def run():
-        game = Board.Board()
-        game.print_board()
+        game = Board()
+        game.start()
+
 
     run()
