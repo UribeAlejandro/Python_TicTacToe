@@ -18,8 +18,10 @@ python3 main.py
 
 The spaces within the boad can be accessed as follows:
 
+````bash
 0,0|0,1|0,2  
 ---+---+---  
 1,0|1,1|1,2  
 ---+---+---  
 2,0|2,1|2,2
+````
