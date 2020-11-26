@@ -8,7 +8,7 @@ Clone this respository, go to the directory you have cloned and then check the s
 ````bash
 python >= 3.8
 ````
-### Running the game
+### Running the game
 
 Clone this respository, go to the directory you have cloned it and run it by typing in your terminal
 
@@ -18,12 +18,8 @@ python3 main.py
 
 The spaces within the boad can be accessed as follows:
 
-0,0|0,1|0,2
-
----+---+---
-
-1,0|1,1|1,2
-
----+---+---
-
+0,0|0,1|0,2  
+---+---+---  
+1,0|1,1|1,2  
+---+---+---  
 2,0|2,1|2,2
